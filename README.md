@@ -1,6 +1,6 @@
-# 📊 Vertigo DBT Project
+# 📊 DBT Project
 
-A dbt project built to transform raw Vertigo game data into clean, reliable daily metrics. This project uses Google BigQuery as the data warehouse and leverages incremental models, partitioning, clustering, and data tests to ensure performance and data quality.
+A dbt project built to transform raw game data into clean, reliable daily metrics. This project uses Google BigQuery as the data warehouse and leverages incremental models, partitioning, clustering, and data tests to ensure performance and data quality.
 
 ---
 
@@ -40,7 +40,7 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:  
    git clone <your-repo-url>  
-   cd vertigo_project
+   cd dbt-metrics
 
 2. Set up your dbt profile (`profiles.yml`) with your Google BigQuery credentials and project info.
 
