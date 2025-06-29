@@ -38,22 +38,33 @@ This project uses the following technology stack:
 
 To run this project locally, follow these steps:
 
-1. Clone the repository:  
+1. Clone the repository and set up virtual env:  
+   ```bash
    git clone <your-repo-url>  
    cd dbt-metrics
-
+   deactivate                                              
+   rm -rf venv             
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+   
 2. Set up your dbt profile (`profiles.yml`) with your Google BigQuery credentials and project info.
 
 3. Install required packages:  
-   dbt deps
+   ```bash
+   pip install dbt-bigquery
+   dbt deps ```
 
-4. Run the dbt models to build your transformed tables:  
-   dbt run
+5. Run the dbt models to build your transformed tables:  
+   ``` bash
+    dbt run
 
-5. Execute tests to ensure data quality:  
-   dbt test
+7. Execute tests to ensure data quality:  
+   ```bash
+    dbt test
 
-6. Generate and view documentation locally:  
+8. Generate and view documentation locally:  
+   ```bash
    dbt docs generate  
    dbt docs serve
 
