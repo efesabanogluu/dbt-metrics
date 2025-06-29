@@ -116,9 +116,23 @@ dbt_project/
 
 ```
 ---
-### 🖼️ Dashboard Preview
+### 🖼️ Dashboard Previews
 
 ![Daily Metrics Dashboard](./assets/daily_metrics.png)
+
+#### 🖼️ Users
+
+![Daily Metrics Dashboard](./assets/users.png)
+
+#### 🖼️ Revenue
+
+![Daily Metrics Dashboard](./assets/revenue.png)
+
+#### 🖼️ Gameplay
+
+![Daily Metrics Dashboard](./assets/gameplay.png)
+
+
 
 ---
 
