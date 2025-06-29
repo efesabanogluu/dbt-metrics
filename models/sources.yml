@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: vertigo_raw
+    database: omega-booster-464215-u4
+    schema: vertigo_raw
+    tables:
+      - name: raw_daily_metrics
+        description: "raw data"

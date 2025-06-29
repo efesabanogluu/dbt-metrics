@@ -1,0 +1,72 @@
+version: 2
+
+models:
+  - name: daily_metrics
+    description: "Daily aggregated metrics by date, country, and platform."
+    config:
+      materialized: table
+      persist_docs:
+        relation: true
+        columns: true
+
+    columns:
+      - name: event_date
+        description: "Event date in UTC"
+        tests:
+          - not_null
+
+      - name: country
+        description: "Country code (ISO 2-letter)"
+        tests:
+          - not_null
+
+      - name: platform
+        description: "User platform"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['IOS', 'ANDROID']
+
+      - name: dau
+        description: "Daily active users (distinct user count)"
+        tests:
+          - not_null
+          - expression_is:
+                expression: "dau > 0"
+
+      - name: total_iap_revenue
+        description: "Sum of in-app purchases (USD)"
+        tests:
+          - not_null
+          - expression_is:
+                expression: "total_iap_revenue >= 0"
+
+      - name: total_ad_revenue
+        description: "Sum of ad revenue (USD)"
+        tests:
+          - not_null
+          - expression_is:
+              expression: "total_ad_revenue >= 0"
+
+      - name: arpdau
+        description: "Average revenue per DAU (IAP + Ad)"
+        tests:
+          - expression_is:
+              expression: "arpdau >= 0"
+          - expression_is:
+              expression: "arpdau = (total_iap_revenue + total_ad_revenue) / NULLIF(dau, 0)"
+
+      - name: matches_started
+        description: "Total matches started"
+        tests:
+          - not_null
+          - expression_is:
+              expression: "matches_started >= 0"
+
+      - name: match_per_dau
+        description: "Average matches per user"
+        tests:
+          - expression_is:
+              expression: "match_per_dau >= 0"
+          - expression_is:
+              expression: "match_per_dau = matches_started / NULLIF(dau, 0)"
