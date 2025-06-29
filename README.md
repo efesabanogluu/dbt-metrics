@@ -13,6 +13,16 @@ A dbt project built to transform raw game data into clean, reliable daily metric
   
 ---
 
+### Raw Data Upload Process
+
+The raw `.csv.gzip` files were first uploaded to **Google Cloud Storage**, and then imported into **BigQuery**. This process ensures efficient storage and accessibility of the raw data for further processing and modeling using dbt.
+
+### Data Processing Notes
+
+- The `country` field is an important dimension for clustering. Therefore, any null values in the `country` column were replaced with `"XX"` to maintain data consistency.
+- Some `event_date` values contained timestamp-like formats. BigQuery automatically converted these to `DATE` format during data ingestion.
+
+---
 This project includes several key files and folders:
 
 - `sources.yml`: Defines raw data sources from BigQuery  
@@ -119,6 +129,10 @@ dbt_project/
 ### 🖼️ Dashboard Previews
 
 ![Daily Metrics Dashboard](./assets/daily_metrics.png)
+
+#### 🖼️ Retention and Journey
+
+![Retention and Journey](./assets/retention_and_journey.png)
 
 #### 🖼️ Users
 
