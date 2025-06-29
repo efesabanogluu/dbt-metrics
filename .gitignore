@@ -1,0 +1,18 @@
+# DBT files
+/target/
+/dbt_packages/
+/logs/
+/dbt.log
+/profiles.yml
+
+# Python env
+dbt-env/
+__pycache__/
+*.pyc
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
