@@ -20,7 +20,6 @@ The raw `.csv.gzip` files were first uploaded to **Google Cloud Storage**, and t
 ### Data Processing Notes
 
 - The `country` field is an important dimension for clustering. Therefore, any null values in the `country` column were replaced with `"XX"` to maintain data consistency.
-- Some `event_date` values contained timestamp-like formats. BigQuery automatically converted these to `DATE` format during data ingestion.
 
 ---
 This project includes several key files and folders:
